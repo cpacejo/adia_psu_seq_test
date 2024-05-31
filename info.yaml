@@ -1,26 +1,21 @@
-# Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  title: "Adiabatic PSU sequencer test"
+  author: "Chris Pacejo"
+  discord: "colanderman"
+  description: "test of a power supply sequencer for adiabatic circuits"
+  language: "Verilog"
+  clock_hz: 32000000
 
-  # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  tiles: "1x1"
 
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_adia_psu_seq_test"
   
-  # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
   source_files:        
-    - "project.v"
+    - "tt_um_adia_psu_seq_test.v"
+    - "psu_sequencer.v"
 
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
-  # Inputs
-  ui[0]: ""
+  ui[0]: "phase select (X)"
   ui[1]: ""
   ui[2]: ""
   ui[3]: ""
@@ -29,25 +24,22 @@ pinout:
   ui[6]: ""
   ui[7]: ""
 
-  # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "selected phase (X)"
+  uo[1]: "phase X step 1"
+  uo[2]: "phase X step 2"
+  uo[3]: "phase X step 3"
+  uo[4]: "phase X step 4"
+  uo[5]: "phase X step 5"
+  uo[6]: "phase X step 6"
+  uo[7]: "phase X step 7"
 
-  # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "phase 0 step 0"
+  uio[1]: "phase 0 step 8"
+  uio[2]: "phase 1 step 0"
+  uio[3]: "phase 1 step 8"
+  uio[4]: "digital sync phase 0 read"
+  uio[5]: "digital sync phase 1 read"
+  uio[6]: "digital sync phase 0 write"
+  uio[7]: "digital sync phase 1 write"
 
-# Do not change!
 yaml_version: 6
